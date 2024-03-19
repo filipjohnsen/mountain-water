@@ -20,7 +20,7 @@ const Heading = ({
     <Tag
       {...props}
       className={cn(
-        "mb-4 text-left text-[clamp(2rem,48px,5vw)] font-bold group-data-[single-column='true']:group-data-[alignment='center']:text-center group-data-[bg='black']:text-white",
+        "mb-4 text-left text-[clamp(2rem,48px,5vw)] font-bold group-data-[alignment='center']:text-center group-data-[bg='black']:text-white",
       )}
     >
       {children}

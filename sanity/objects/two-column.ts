@@ -32,7 +32,7 @@ export const section = defineType({
     }),
     defineField({
       name: "alignment",
-      title: "Justering",
+      title: "Justering horisontalt",
       type: "string",
       options: {
         list: [
@@ -50,6 +50,25 @@ export const section = defineType({
           },
         ],
       },
+    }),
+    defineField({
+      name: "stacking",
+      title: "Stabling",
+      type: "string",
+      description: "Hvordan kolonnene skal stables",
+      options: {
+        list: [
+          {
+            title: "Horisontal",
+            value: "default",
+          },
+          {
+            title: "Vertikal",
+            value: "vertical",
+          },
+        ],
+      },
+      hidden: ({ parent }) => parent?.columns?.length === 1,
     }),
     defineField({
       name: "columns",

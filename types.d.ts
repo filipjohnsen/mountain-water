@@ -4,8 +4,8 @@ type RecursivePartial<T> = {
   [P in keyof T]?: T[P] extends (infer U)[]
     ? RecursivePartial<U>[]
     : T[P] extends object | undefined
-    ? RecursivePartial<T[P]>
-    : T[P];
+      ? RecursivePartial<T[P]>
+      : T[P];
 };
 
 export type PageResult = RecursivePartial<{
@@ -36,6 +36,7 @@ export interface Section {
   _key: string;
   backgroundColor?: string;
   alignment?: string;
+  stacking?: string;
 }
 
 export type TextColumn = {
