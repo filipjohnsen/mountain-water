@@ -7,12 +7,18 @@ import { PageBuilder } from "./page-builder";
 
 export function PagePreview({
   initial,
+  query,
+  slug,
 }: {
   initial: QueryResponseInitial<PageResult>;
+  query: string;
+  slug: string;
 }) {
   const { data } = useQuery(
-    HOME_QUERY,
-    {},
+    query,
+    {
+      slug,
+    },
     {
       initial,
     }

@@ -13,19 +13,19 @@ export const section = defineType({
         list: [
           {
             title: "Sort",
-            value: "#000000",
+            value: "black",
           },
           {
             title: "Hvit",
-            value: "#ffffff",
+            value: "white",
           },
           {
             title: "Grå",
-            value: "#E9E9E9",
+            value: "gray",
           },
           {
             title: "Gul",
-            value: "#FFD600",
+            value: "yellow",
           },
         ],
       },

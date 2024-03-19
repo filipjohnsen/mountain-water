@@ -13,6 +13,8 @@ export async function GET(request: Request) {
     request.url
   );
 
+  console.log(redirectTo);
+
   if (!isValid) {
     return new Response("Invalid secret", { status: 401 });
   }

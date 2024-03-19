@@ -6,7 +6,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-[#FFD600] border-[#FFD600] hover:border-black",
+        primary:
+          "bg-[#FFD600] border-[#FFD600] hover:border-black group-data-[bg='yellow']:border-white",
         secondary: "bg-white border-black",
       },
     },

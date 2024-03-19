@@ -43,7 +43,9 @@ export default async function Page({
   const isDraftMode = draftMode().isEnabled;
 
   if (isDraftMode) {
-    return <PagePreview initial={initial} />;
+    return (
+      <PagePreview slug={params.page} query={PAGE_QUERY} initial={initial} />
+    );
   }
 
   return <PageBuilder content={initial.data.content} />;

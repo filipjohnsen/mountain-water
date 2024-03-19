@@ -10,7 +10,7 @@ import { locate } from "./sanity/lib/locate";
 export default defineConfig({
   basePath: "/studio",
   projectId,
-  title: "Moutain Water",
+  title: "Mountain Water",
   dataset,
 
   schema,

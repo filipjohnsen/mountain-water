@@ -20,7 +20,7 @@ export default async function Home() {
   const isDraftMode = draftMode().isEnabled;
 
   if (isDraftMode) {
-    return <PagePreview initial={initial} />;
+    return <PagePreview slug="home" query={HOME_QUERY} initial={initial} />;
   }
 
   return <PageBuilder content={initial.data.content} />;

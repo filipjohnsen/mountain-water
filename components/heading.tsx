@@ -21,8 +21,7 @@ const Heading = ({
     <Tag
       {...props}
       className={cn(
-        "text-[clamp(2rem,48px,5vw)] font-bold mb-4",
-        isBlack ? "text-white" : "text-black",
+        "text-[clamp(2rem,48px,5vw)] font-bold mb-4 group-data-[bg='black']:text-white",
         alignment === "center" ? "text-center" : "text-left"
       )}
     >
