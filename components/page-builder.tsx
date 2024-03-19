@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn, sanitiseForPreview } from "@/lib/utils";
 import { PageResult } from "@/types";
 import Heading from "./heading";
 import Image from "next/image";
@@ -8,13 +8,6 @@ import { PortableText } from "next-sanity";
 import { YouTubePlayer } from "./youtube-video";
 import getVideoId from "get-video-id";
 import { Fragment } from "react";
-
-const sanitiseForPreview = (color: string) => {
-  //remove any hex values from the color
-  const colorString = color.replace(/[^a-zA-Z]/g, "").toLowerCase();
-
-  return colorString;
-};
 
 export function PageBuilder({ content }: PageResult) {
   return (
@@ -50,23 +43,13 @@ export function PageBuilder({ content }: PageResult) {
                       {column.preTitle && (
                         <p
                           className={cn(
-                            "text-[20px] font-semibold uppercase leading-normal tracking-wider",
-                            section.alignment === "center" && isSingleColumn
-                              ? "text-center"
-                              : "text-left",
+                            "text-left text-[20px] font-semibold uppercase leading-normal tracking-wider group-data-[single-column='true']:group-data-[alignment='center']:text-center",
                           )}
                         >
                           {column.preTitle}
                         </p>
                       )}
-                      <Heading
-                        as={idx === 0 ? "h1" : "h2"}
-                        alignment={
-                          section.alignment && isSingleColumn
-                            ? section.alignment
-                            : "left"
-                        }
-                      >
+                      <Heading as={idx === 0 ? "h1" : "h2"}>
                         {column.title}
                       </Heading>
 
@@ -100,13 +83,15 @@ export function PageBuilder({ content }: PageResult) {
                         isSingleColumn ? "max-w-[800px]" : "",
                       )}
                     >
-                      {column.mediaType === "Video" && (
+                      {sanitiseForPreview(column.mediaType ?? "") ===
+                        "Video" && (
                         <YouTubePlayer
                           id={getVideoId(column.video ?? "").id ?? ""}
                           title=""
                         />
                       )}
-                      {column.mediaType === "Bilde" && (
+                      {sanitiseForPreview(column.mediaType ?? "") ===
+                        "Bilde" && (
                         <Image
                           src={urlForImage(column.image?.asset?._ref ?? "")}
                           alt=""
