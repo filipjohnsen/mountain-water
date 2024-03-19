@@ -29,6 +29,6 @@ export default defineConfig({
       },
     }),
 
-    visionTool({ defaultApiVersion: apiVersion }),
+    visionTool({ defaultApiVersion: apiVersion, title: "For utvikler" }),
   ],
 });

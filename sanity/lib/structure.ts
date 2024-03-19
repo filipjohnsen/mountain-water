@@ -2,7 +2,7 @@ import { StructureBuilder } from "sanity/structure";
 
 export const structure = (S: StructureBuilder) => {
   return S.list()
-    .title("Content")
+    .title("Mountain Water")
     .items([
       S.listItem()
         .title("Sider")
@@ -10,7 +10,7 @@ export const structure = (S: StructureBuilder) => {
       S.listItem()
         .title("Innstillinger")
         .child(
-          S.document().schemaType("siteSettings").documentId("siteSettings")
+          S.document().schemaType("siteSettings").documentId("siteSettings"),
         ),
     ]);
 };
