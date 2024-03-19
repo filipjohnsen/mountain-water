@@ -4,10 +4,23 @@ import { draftMode } from "next/headers";
 import LiveVisualEditing from "@/components/live-visual-editing";
 import { Header } from "@/components/header";
 import { loadQuery } from "@sanity/react-loader";
-import { LAYOUT_QUERY } from "@/sanity/lib/queries";
+import { DEFAULT_SEO_QUERY, LAYOUT_QUERY } from "@/sanity/lib/queries";
 import { LayoutResult } from "@/types";
+import { Metadata } from "next";
+import { client } from "@/sanity/lib/client";
 
 const font = Inter({ subsets: ["latin"] });
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await client.fetch<{
+    title: string;
+    seoDescription?: string;
+  }>(DEFAULT_SEO_QUERY);
+  return {
+    title: seo.title,
+    ...(seo.seoDescription && { description: seo.seoDescription }),
+  };
+}
 
 export default async function RootLayout({
   children,

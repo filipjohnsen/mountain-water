@@ -3,7 +3,7 @@ import { groq } from "next-sanity";
 export const HOME_QUERY = groq`*[_type == "page" && isFrontpage == true][0]{content}`;
 export const PAGE_QUERY = groq`*[_type == "page" && slug.current == $slug][0]{content}`;
 export const LAYOUT_QUERY = groq`*[_type == "siteSettings"][0]{
-    title, 
+    title,
     menus{
       headerMenu {
         defined(cta.link._ref) => {
@@ -18,4 +18,9 @@ export const LAYOUT_QUERY = groq`*[_type == "siteSettings"][0]{
         }
       }
     }
+}`;
+
+export const DEFAULT_SEO_QUERY = groq`*[_type == "siteSettings"][0]{
+  title,
+  "seoDescription": description
 }`;
