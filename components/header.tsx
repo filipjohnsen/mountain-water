@@ -10,13 +10,13 @@ export function Header({
   menu: RecursivePartial<HeaderMenu>;
 }) {
   return (
-    <header className="sticky z-10 top-0 bg-white shadow-md px-4">
-      <nav className="container py-2 mx-auto flex items-center justify-between">
-        <Link className="font-bold text-xl" href="/">
+    <header className="sticky top-0 z-10 bg-white px-4 shadow-md">
+      <nav className="container mx-auto flex items-center justify-between py-2">
+        <Link className="text-xl font-bold" href="/">
           {title}
         </Link>
         {menu?.items && (
-          <ul className="hidden md:flex gap-6">
+          <ul className="hidden gap-6 md:flex">
             {menu.items.map((item) => (
               <li key={item.link}>
                 <Link
@@ -29,9 +29,9 @@ export function Header({
             ))}
           </ul>
         )}
-        {menu?.cta && (
+        {menu?.cta?.link && menu?.cta?.text && (
           <ButtonLink
-            text={menu.cta.text ?? ""}
+            text={menu.cta.text}
             href={`/${menu.cta.link}`}
             variant="primary"
           />

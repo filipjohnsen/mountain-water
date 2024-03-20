@@ -39,6 +39,12 @@ export async function GET(
       })
     : await client.fetch<PageData>(query);
 
+  if (!pageData) {
+    return new Response("Not found", {
+      status: 404,
+    });
+  }
+
   const imageData = await fetch(
     new URL("@/public/opengraph-image.jpg", import.meta.url),
   ).then((res) => res.arrayBuffer());
