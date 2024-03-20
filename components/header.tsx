@@ -11,7 +11,7 @@ export function Header({
 }) {
   return (
     <header className="sticky top-0 z-10 bg-white px-4 shadow-md">
-      <nav className="container mx-auto flex items-center justify-between py-2">
+      <nav className="container mx-auto flex min-h-14 items-center justify-between py-2">
         <Link className="text-xl font-bold" href="/">
           {title}
         </Link>
